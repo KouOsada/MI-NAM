@@ -24,4 +24,10 @@ class Admin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  # ログイン後は投稿一覧ページに飛ぶ
+  def after_sign_in_path_for(resource)
+      admin_posts_path
+  end
+  
 end

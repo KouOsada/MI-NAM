@@ -59,4 +59,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  # 新規登録後は会員詳細画面へ飛ぶ
+  def after_sign_up_path_for(resource)
+    posts_path
+  end
+  
 end
