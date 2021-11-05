@@ -17,6 +17,10 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
  
+ body {
+  font-family: 'Noto Sans JP', sans-serif;
+ }
+ 
  // 画像を円形にする
  img {
   border-radius: 50%;

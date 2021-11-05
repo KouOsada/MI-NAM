@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   # ユーザー側ルーティング
   scope module: :user do
     root to: "homes#top"
-    get 'homes/about'
+    get 'about' => "homes#about", as: 'about'
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <!--ここにロゴ-->
+  
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        
+        <% if user_signed_in? %>
+          <!--会員ログイン時-->
+          <li class="nav-item">
+            <%= link_to user_path(current_user.id), class: "nav-link" do %>
+              <i class="fas fa-user"></i> マイページ
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_post_path, class: "nav-link" do %>
+              <i class="fas fa-pen-fancy"></i> 新規投稿
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to posts_path, class: "nav-link" do %>
+              <i class="fas fa-book"></i> 投稿一覧
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <!--path指定する-->
+              <i class="fas fa-bell"></i> 通知
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
+          
+        <% elsif admin_signed_in? %>
+          <!--管理者ログイン時-->
+          <li class="nav-item">
+            <%= link_to admin_users_path, class: "nav-link" do %>
+              <i class="fas fa-users"></i> 会員
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_posts_path, class: "nav-link" do %>
+              <i class="fas fa-book"></i> 投稿
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_genres_path, class: "nav-link" do %>
+              <i class="fas fa-list"></i> ジャンル
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
+          
+        <% else %>
+          <!--ログイン・登録どちらもしていない時-->
+          <li class="nav-item">
+            <%= link_to about_path, class: "nav-link" do %>
+              <i class="fas fa-leaf"></i> MI-NAMについて
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to posts_path, class: "nav-link" do %>
+              <i class="fas fa-book"></i> 投稿一覧
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="fas fa-sign-in-alt"></i> ログイン
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class: "nav-link" do %>
+              <i class="fas fa-user-plus"></i> 新規登録
+            <% end %>
+          </li>
+          
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
