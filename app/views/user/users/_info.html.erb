@@ -5,6 +5,8 @@
     <th>
       <% if user.id = current_user.id %>
         <%= link_to "編集", edit_user_path(user.id), class: "btn btn-info rounded-pill pull-right" %>
+      <% else %>
+        <!--フォロー中orフォロー＋を表示-->
       <% end %>
     </th>
   </tr>
