@@ -49,6 +49,9 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update]
+    get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
+    patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'
+    put 'withdraw/:id' => 'users#withdraw'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
