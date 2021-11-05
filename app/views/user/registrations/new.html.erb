@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <h2>会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "user/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+        <%= render "user/shared/error_messages", resource: resource %>
+      
+        <div class="form-group">
+          <%= f.label "ニックネーム" %><br />
+          <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input_field" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input_field" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "input_field" %>
+        </div>
+      
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_field" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label "プロフィール画像" %><br />
+          <%= f.attachment_field :profile_image %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label "プロフィール紹介" %><br />
+          <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class: "input_area" %>
+        </div>
+        
+        <div class="form-group">
+        <%= f.label "年齢" %><br />
+        <%= f.select :age, User.ages.keys.map {|k| [I18n.t("enums.user.age.#{k}"), k]} %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label "肌タイプ" %><br />
+          <%= f.select :skin_type, User.skin_types.keys.map {|k| [I18n.t("enums.user.skin_type.#{k}"), k]} %>
+        </div>
+      
+        <div class="form-group  text-center">
+          <%= f.submit "登録", class: "btn btn-success" %>
+        </div>
+      <% end %>
+      
+      <p class="mt-4">
+        会員登録がお済みの方は
+        <%= link_to "こちら", new_user_session_path %>
+      </p>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "user/shared/links" %>
+</div>
