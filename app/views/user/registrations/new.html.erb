@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-10 mx-auto">
-      <h2　class="text-center">会員登録</h2>
+    <div class="col-12 mx-auto">
+      <h2>会員登録</h2>
 
       <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
         <%= render "user/shared/error_messages", resource: resource %>
@@ -29,7 +29,10 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_field" %>
         </div>
         
-        <!--ここに画像登録を入れる！！！！！-->
+        <div class="form-group">
+          <%= f.label "プロフィール画像" %><br />
+          <%= f.attachment_field :profile_image %>
+        </div>
         
         <div class="form-group">
           <%= f.label "プロフィール紹介" %><br />
@@ -37,13 +40,13 @@
         </div>
         
         <div class="form-group">
-          <%= f.label "年齢" %><br />
-          <!--ここに年代を入れる-->
+        <%= f.label "年齢" %><br />
+        <%= f.select :age, User.ages.keys.map {|k| [I18n.t("enums.user.age.#{k}"), k]} %>
         </div>
         
         <div class="form-group">
           <%= f.label "肌タイプ" %><br />
-          <!--ここに肌タイプを入れる-->
+          <%= f.select :skin_type, User.skin_types.keys.map {|k| [I18n.t("enums.user.skin_type.#{k}"), k]} %>
         </div>
       
         <div class="form-group  text-center">
@@ -55,7 +58,6 @@
         会員登録がお済みの方は
         <%= link_to "こちら", new_user_session_path %>
       </p>
-      
     </div>
   </div>
 </div>
