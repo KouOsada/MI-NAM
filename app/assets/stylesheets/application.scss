@@ -27,3 +27,11 @@
   width: 60%;
   height: 100%;
  }
+ 
+ // 画像を円形にする
+ img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}

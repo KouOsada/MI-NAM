@@ -1,0 +1,30 @@
+<table class="table mb-4">
+  <tr>
+    <th><%= attachment_image_tag(user, :profile_image, fallback: "no_image.png") %></th>
+    <th></th>
+    <th>
+      <% if user.id = current_user.id %>
+        <%= link_to "編集", edit_user_path(user.id), class: "btn btn-info rounded-pill pull-right" %>
+      <% end %>
+    </th>
+  </tr>
+</table>
+
+<table class="table">
+  <tr>
+    <th><%= user.nickname %></th>
+    <td><%= user.age_i18n %></td>
+    <td><%= user.skin_type_i18n %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><%= user.introduction %></td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td>フォロー中</td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td>フォロワー</td>
+  </tr>
+</table>
