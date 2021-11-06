@@ -3,7 +3,7 @@
     <th><%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "no_image.png", class: "profile_image") %></th>
     <th></th>
     <th>
-      <% if user.id = current_user.id %>
+      <% if user = current_user %>
         <%= link_to "編集", edit_user_path(user.id), class: "btn btn-info rounded-pill pull-right" %>
       <% else %>
         <!--フォロー中orフォロー＋を表示-->
@@ -14,7 +14,7 @@
 
 <table class="table">
   <tr>
-    <td><strong><%= user.nickname %></strong></td>
+    <td><%= user.nickname %></td>
     <td><%= user.age_i18n %></td>
     <td><%= user.skin_type_i18n %></td>
   </tr>

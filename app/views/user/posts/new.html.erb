@@ -1,2 +1,37 @@
-<h1>User::Posts#new</h1>
-<p>Find me in app/views/user/posts/new.html.erb</p>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="mb-5">新しい投稿</h2>
+
+      <%= form_with model: @post, url: posts_path, local: true do |f| %>
+
+        <div class="form-group mb-4">
+          <%= f.label "画像" %><br>
+          <%= f.attachment_field :post_image %>
+        </div>
+
+        <div class="form-group mb-4">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-4">
+          <%= f.label "投稿内容" %>
+          <%= f.text_area :body, class: "form-control", placeholder: "メンズコスメや脱毛など、美容関連であればなんでもOK！お気軽に投稿してください！" %>
+        </div>
+        <!--ここにタグ付け-->
+
+        <div class="form-group mb-4">
+          <%= f.label "ジャンル：　" %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: "-- 選択してください --" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "投稿する！", class: "btn btn-success rounded-pill btn-block" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

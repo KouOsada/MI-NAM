@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  namespace :user do
-    get 'posts/new'
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
-  end
   
   namespace :user do
     get 'homes/top'
@@ -14,10 +8,7 @@ Rails.application.routes.draw do
     get 'genres/index'
     get 'genres/edit'
   end
-  namespace :admin do
-    get 'posts/index'
-    get 'posts/show'
-  end
+  
   namespace :admin do
     get 'users/index'
     get 'users/show'
