@@ -1,6 +1,6 @@
 <table class="table mb-4">
   <tr>
-    <th><%= attachment_image_tag(user, :profile_image, fallback: "no_image.png") %></th>
+    <th><%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "no_image.png", class: "profile_image") %></th>
     <th></th>
     <th>
       <% if user.id = current_user.id %>
@@ -14,7 +14,7 @@
 
 <table class="table">
   <tr>
-    <th><%= user.nickname %></th>
+    <td><strong><%= user.nickname %></strong></td>
     <td><%= user.age_i18n %></td>
     <td><%= user.skin_type_i18n %></td>
   </tr>

@@ -4,7 +4,7 @@
       <h2>会員情報編集</h2>
       
       <div class="my-4">
-        <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.png") %>
+        <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.png") %>
       </div>
       
       <%= form_with model: @user, local: true do |f| %>

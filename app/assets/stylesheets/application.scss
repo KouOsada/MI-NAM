@@ -17,14 +17,33 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
  
+ // リセットCSS
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+ 
  body {
   font-family: 'Noto Sans JP', sans-serif;
  }
  
- // 画像を円形にする
- img {
+ .table th {
+  border-top: none;
+ }
+ 
+ // プロフィール画像を円形にする
+ .profile_image {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
   object-fit: cover;
+}
+
+footer {
+ width: 100%;
+ height: 100px;
+}
+
+.footer-text {
+ line-height: 100px;
+ text-align: center;
 }
