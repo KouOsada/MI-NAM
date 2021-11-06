@@ -1,10 +1,10 @@
-<div class="container my-5">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <%= render 'info', user: @user %>
+    <div class="col-md-4">
+      <%= render 'info', user: current_user %>
     </div>
-    <div class="col-md-8 offset-md-1">
-      ここに投稿一覧のテンプレを持ってくる
+    <div class="col-md-7 offset-md-1">
+      <%= render 'user/posts/index', posts: @user.posts %>
     </div>
   </div>
 </div>

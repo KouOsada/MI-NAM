@@ -1,2 +1,26 @@
-<h1>User::Posts#show</h1>
-<p>Find me in app/views/user/posts/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-4">
+      <%= render 'user/users/info', user: @post.user %>
+    </div>
+    <div class="col-md-7 offset-md-1 mt-5 post-show">
+      <div class="text-center mt-4">
+        <%= attachment_image_tag @post, :post_image, size: "300x300", class: "post-show-img" %>
+      </div>
+      <div class="text-right">
+        <% if @post.user == current_user %>
+          <%= link_to edit_post_path(@post.id) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="page-header mt-4">
+        <h2 class="post-title"><%= @post.title %></h2>
+        <p>ジャンル：　<%= @post.genre.name %></p>
+      </div>
+      <div>
+        <p><%= @post.body %></p>
+      </div>
+    </div>
+  </div>
+</div>
