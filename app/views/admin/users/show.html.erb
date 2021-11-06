@@ -1,2 +1,57 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-4">
+      <h2 class="mt-5">会員詳細</h2>
+      <table class="table table-hover table-bordered mt-5">
+        <tbody>
+          <tr>
+            <th>会員ID</th>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <th>ニックネーム</th>
+            <td><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th>プロフィール紹介</th>
+            <td><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <th>年齢</th>
+            <td><%= @user.age_i18n %></td>
+          </tr>
+          <tr>
+            <th>肌タイプ</th>
+            <td><%= @user.skin_type_i18n %></td>
+          </tr>
+          <tr>
+            <th>ステータス</th>
+            <td>
+              <% if @user.is_deleted == false %>
+                有効
+              <% else %>
+                退会済み
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-7 offset-md-1">
+      <div class="row">
+        <% @posts.each do |postitem| %>
+          <div class="card m-3">
+            <%= link_to post_path(postitem.id) do %>
+              <%= attachment_image_tag(postitem, :post_image) %>
+            <% end %>
+            <div class="card-body">
+              <%= link_to admin_post_path(postitem.id) do %>
+                <%= postitem.title %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+</div>
+    </div>
+  </div>
+</div>
