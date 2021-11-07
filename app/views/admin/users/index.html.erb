@@ -3,18 +3,19 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>会員一覧</h2>
       <table class="table">
-        <% @users.each do |user| %>
-          <thead>
-            <tr>
-              <th></th>
-              <th>ニックネーム</th>
-              <th>投稿数</th>
-            </tr>
-          </thead>
-          <tbody>
+
+        <thead>
+          <tr>
+            <th></th>
+            <th>ニックネーム</th>
+            <th>投稿数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
             <tr>
               <td>
-                <%= attachment_image_tag user, :profile_image, size: "100x100", class: "profile_image" %>
+                <%= attachment_image_tag user, :profile_image, size: "80x80", fallback: "no_image.png", class: "profile_image" %>
               </td>
               <td>
                 <%= link_to admin_user_path(user.id) do %>
@@ -23,8 +24,8 @@
               </td>
               <td><%= user.posts.count %></td>
             </tr>
-          </tbody>
-        <% end %>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
