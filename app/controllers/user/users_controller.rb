@@ -23,7 +23,7 @@ class User::UsersController < ApplicationController
   end
 
   def withdraw
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path

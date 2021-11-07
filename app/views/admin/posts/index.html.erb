@@ -1,2 +1,40 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
+<div class="flash"><%= flash[:notice] %></div>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>投稿一覧</h2>
+      <table class="table mt-5">
+        <thead>
+          <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th>投稿者</th>
+            <th>いいね数</th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |postitem| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag postitem, :post_image, size: "80x80", fallback: "no_image.png" %>
+              </td>
+              <td>
+                <%= link_to admin_post_path(postitem.id) do %>
+                  <%= postitem.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to admin_user_path(postitem.user.id) do %>
+                  <%= postitem.user.nickname %>
+                <% end %>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
