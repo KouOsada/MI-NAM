@@ -1,6 +1,15 @@
 <table class="table mb-4">
   <tr>
-    <th><%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "no_image.png", class: "profile_image") %></th>
+    <th>
+      <!--ログイン者がユーザーの場合：画像リンク。管理者の場合は表示のみ。-->
+      <% if user_signed_in? %>
+        <%= link_to user_path(user) do %>
+          <%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "no_image.png", class: "profile_image") %>
+        <% end %>
+      <% else %>
+        <%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "no_image.png", class: "profile_image") %>
+      <% end %>
+    </th>
     <th></th>
     <th>
       <% if user == current_user %>
@@ -14,7 +23,7 @@
 
 <table class="table">
   <tr>
-    <td><%= user.nickname %></td>
+    <td class="font-weight-bold"><%= user.nickname %></td>
     <td><%= user.age_i18n %></td>
     <td><%= user.skin_type_i18n %></td>
   </tr>

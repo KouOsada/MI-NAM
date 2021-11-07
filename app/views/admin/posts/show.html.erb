@@ -1,0 +1,20 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-4">
+      <h2 class="mb-4"><%= @post.user.nickname %> さんの投稿</h2>
+      <%= render 'user/users/info', user: @post.user %>
+    </div>
+    <div class="col-md-7 offset-md-1 mt-5 post-show">
+      <div class="text-center mt-4">
+        <%= attachment_image_tag @post, :post_image, size: "300x300", class: "post-show-img" %>
+      </div>
+      <div class="page-header mt-4">
+        <h2 class="post-title"><%= @post.title %></h2>
+        <p>ジャンル：　<%= @post.genre.name %></p>
+      </div>
+      <div>
+        <p><%= @post.body %></p>
+      </div>
+    </div>
+  </div>
+</div>

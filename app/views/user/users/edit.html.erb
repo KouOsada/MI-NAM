@@ -1,47 +1,52 @@
 <div class="container my-5">
+  <div class="flash"><%= flash[:notice] %></div>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>会員情報編集</h2>
-      
+
       <div class="my-4">
         <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.png") %>
       </div>
-      
+
       <%= form_with model: @user, local: true do |f| %>
         <div class="form-group">
           <%= f.label "プロフィール画像" %><br>
           <%= f.attachment_field :profile_image %>
         </div>
-        
+
         <div class="form-group">
           <%= f.label "ニックネーム" %>
           <%= f.text_field :nickname, class: "form-control" %>
         </div>
-        
+
         <div class="form-group">
           <%= f.label "メールアドレス" %>
           <%= f.text_field :email, class: "form-control" %>
         </div>
-        
+
         <div class="form-group">
           <%= f.label "プロフィール紹介" %>
           <%= f.text_area :introduction, class: "form-control" %>
         </div>
-        
+
         <div class="form-group">
         <%= f.label "年齢" %><br />
         <%= f.select :age, User.ages.keys.map {|k| [I18n.t("enums.user.age.#{k}"), k]} %>
         </div>
-        
+
         <div class="form-group">
           <%= f.label "肌タイプ" %><br />
           <%= f.select :skin_type, User.skin_types.keys.map {|k| [I18n.t("enums.user.skin_type.#{k}"), k]} %>
         </div>
-      
-        <div class="form-group text-right">
+
+        <div class="form-group">
           <%= f.submit "変更を保存", class: "btn btn-info rounded-pill btn-block" %>
         </div>
       <% end %>
+      <p class="mt-4 text-right">
+        退会は
+        <%= link_to "こちら", unsubscribe_path %>
+      </p>
     </div>
   </div>
 </div>

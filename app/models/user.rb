@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  attachment :profile_image
-  
   # 投稿関連のアソシエーション
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -17,6 +15,11 @@ class User < ApplicationRecord
   # 　肌タイプ　0:普通肌 1:乾燥肌 2:脂性肌 3:混合肌 4:敏感肌
   enum skin_type: { normal: 0, dry: 1, oily: 2, combination: 3, sensitive: 4 }
   
+  attachment :profile_image
+  
   # バリデーション
+  validates :nickname, presence: true, length: {minimum: 2, maximun: 30}, uniqueness: true
+  validates :skin_type, presence: true
+  validates :introduction, length: {maximum: 100}
   
 end
