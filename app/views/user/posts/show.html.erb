@@ -25,7 +25,14 @@
         <p>ジャンル：　<%= @post.genre.name %></p>
       </div>
       <div>
-        <p><%= @post.body %></p>
+        <p>
+          <%= @display_body %><br>
+          <%= if @hashtags.present? %>
+            <%= @hashtags.each do |hashtag| %>
+              <%= link_to "##{hashtag.name}", hashtag_path(hashtag.id) %>
+            <% end %>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>
