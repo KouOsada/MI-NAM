@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   
-  namespace :user do
-    get 'homes/top'
-    get 'homes/about'
-  end
+  
   namespace :admin do
     get 'genres/index'
     get 'genres/edit'
@@ -39,6 +36,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    resources :hashtags, only: [:show]
     resources :users, only: [:show, :edit, :update]
     get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'

@@ -1,12 +1,12 @@
 <div class="row">
-  <% posts.each do |postitem| %>
+  <% posts.each do |post| %>
     <div class="card m-3">
-      <%= link_to post_path(postitem.id) do %>
-        <%= attachment_image_tag(postitem, :post_image) %>
+      <%= link_to post_path(post.id) do %>
+        <%= attachment_image_tag(post, :post_image) %>
       <% end %>
       <div class="card-body">
-        <%= link_to post_path(postitem.id) do %>
-          <%= postitem.title %>
+        <%= link_to post_path(post.id) do %>
+          <%= post.title %>
         <% end %>
       </div>
     </div>

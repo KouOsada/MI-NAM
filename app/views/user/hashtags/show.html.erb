@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mt-4">
+      <h2 class="my-5"><strog class="hash-name">#<%= @hashtag.name %></strog> に関する投稿</h2>
+      <div class="row">
+        <% @post_objects.each_with_index do |post, i| %>
+          <% display_body = post["body"].gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/,"") %>
+          <div class="card m-3">
+            <%= link_to post_path(post["id"]) do %>
+              <%= attachment_image_tag @posts[i], :post_image %>
+            <% end %>
+            <div class="card-body">
+              <%= link_to post_path(post["id"]) do %>
+                <%= post["title"] %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
