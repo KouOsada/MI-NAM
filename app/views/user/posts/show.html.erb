@@ -27,8 +27,8 @@
       <div>
         <p>
           <%= @display_body %><br>
-          <%= if @hashtags.present? %>
-            <%= @hashtags.each do |hashtag| %>
+          <% if @hashtags.present? %>
+            <% @hashtags.each do |hashtag| %>
               <%= link_to "##{hashtag.name}", hashtag_path(hashtag.id) %>
             <% end %>
           <% end %>

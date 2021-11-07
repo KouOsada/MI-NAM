@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   
-  namespace :user do
-    get 'homes/top'
-    get 'homes/about'
-  end
+  
   namespace :admin do
     get 'genres/index'
     get 'genres/edit'
