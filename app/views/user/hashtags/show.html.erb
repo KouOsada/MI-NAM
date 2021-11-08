@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7 mt-4">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2 class="my-5"><strog class="hash-name">#<%= @hashtag.name %></strog> に関する投稿</h2>
       <div class="row">
         <% @post_objects.each_with_index do |post, i| %>
@@ -11,7 +11,7 @@
             <% end %>
             <div class="card-body">
               <%= link_to post_path(post["id"]) do %>
-                <%= post["title"] %>
+                <%= post["body"] %>
               <% end %>
             </div>
           </div>

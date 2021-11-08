@@ -8,6 +8,10 @@
         <%= link_to post_path(post.id) do %>
           <%= post.title %>
         <% end %>
+        <div id="post_favorites_<%= post.id %>" class="mt-2">
+          <%= render "user/favorites/favorite-btn", post: post %>
+        </div>
+        <!--ここにコメントカウント-->
       </div>
     </div>
   <% end %>
