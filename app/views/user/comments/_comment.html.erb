@@ -1,0 +1,20 @@
+<table class="table">
+  <% post.comments.each do |comment| %>
+    <tr>
+      <td>
+        <%= link_to attachment_image_tag(comment.user, :profile_image, size: "50x50", fallback: "no_image.png", class: "profile_image"), user_path(comment.user) %><br>
+        <%= comment.user.nickname %>
+      </td>
+      <td>
+        <%= comment.comment %>
+      </td>
+      <td>
+        <% if comment.user == current_user %>
+          <%= link_to post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger", remote: true do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

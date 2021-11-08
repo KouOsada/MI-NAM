@@ -9,9 +9,23 @@
           <%= post.title %>
         <% end %>
         <div id="post_favorites_<%= post.id %>" class="mt-2">
-          <%= render "user/favorites/favorite-btn", post: post %>
+          <!--ユーザーがログインしている時はいいねが押せる。それ以外はいいね数の表示のみ-->
+          <% if user_signed_in? %>
+            <%= render "user/favorites/favorite-btn", post: post %>
+          <% else %>
+            <div class="heart_red">
+              <i class="far fa-heart"></i><%= post.favorites.count %>
+            </div>
+          <% end %>
+          <!--ユーザーがログインしている時は投稿詳細へのリンク、それ以外はコメント数の表示のみ-->
+          <% if user_signed_in? %>
+            <%= link_to post_path(post.id) do %>
+              <i class="far fa-comment ml-5"></i> <%= post.comments.count %>
+            <% end %>
+          <% else %>
+            <i class="far fa-comment ml-5"></i> <%= post.comments.count %>
+          <% end %>
         </div>
-        <!--ここにコメントカウント-->
       </div>
     </div>
   <% end %>

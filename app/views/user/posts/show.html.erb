@@ -22,10 +22,13 @@
       </div>
       <div class="page-header mt-4">
         <h2 class="post-title"><%= @post.title %></h2>
-        <div class="row">
-          <p>ジャンル：　<%= @post.genre.name %></p>
+        <div class="row mx-auto">
+          <p class="text-muted">ジャンル：　<%= @post.genre.name %></p>
           <div id="post_favorites_<%= @post.id %>" class="ml-5">
             <%= render "user/favorites/favorite-btn", post: @post %>
+          </div>
+          <div class="ml-5">
+            <i class="far fa-comment"></i> <%= @post.favorites.count %>
           </div>
         </div>
       </div>
@@ -39,6 +42,22 @@
           <% end %>
         </p>
       </div>
+      <div class="page-header">
+        <p class="text-muted">コメント</p>
+      </div>
+        <div>
+          <%= form_with model: [@post, @comment] do |f| %>
+            <div class="form-group">
+              <%= f.text_area :comment, class: "form-control", placeholder: "コメントを入力してください" %>
+            </div>
+            <div class="form-group text-right">
+              <%= f.submit "送信", class: "btn btn-info rounded-pill" %>
+            </div>
+          <% end %>
+        </div>
+        <div id="post_comments_<%= @post.id %>">
+          <%= render "user/comments/comment", post: @post %>
+        </div>
     </div>
   </div>
 </div>

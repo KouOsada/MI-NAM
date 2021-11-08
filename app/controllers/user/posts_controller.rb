@@ -18,7 +18,6 @@ class User::PostsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def index
@@ -27,6 +26,7 @@ class User::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
     # idのみを配列にして返す
     related_records = PostHashtag.where(post_id: @post.id).pluck(:hashtag_id)
     hashtags = Hashtag.all
