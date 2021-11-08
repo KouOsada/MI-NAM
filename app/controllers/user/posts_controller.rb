@@ -23,9 +23,6 @@ class User::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    # @hashtags = Hashtag.all
-    # @post_hashtags = PostHashtag.all
-    # @post_objects = creating_structures(posts: @posts, post_hashtags: @post_hashtags, hashtags: @hashtags)
   end
 
   def show

@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-4">
-      <h2 class="mb-4"><%= @post.user.nickname %> さんの投稿</h2>
+      <h2 class="my-5"><%= @post.user.nickname %> さんの投稿</h2>
       <%= render 'user/users/info', user: @post.user %>
     </div>
     <div class="col-md-7 offset-md-1 mt-5 post-show">
@@ -10,7 +10,14 @@
       </div>
       <div class="page-header mt-4">
         <h2 class="post-title"><%= @post.title %></h2>
-        <p>ジャンル：　<%= @post.genre.name %></p>
+        <div class="row mx-auto">
+          <p>ジャンル：　<%= @post.genre.name %></p>
+          <div id="post_favorites_<%= @post.id %>" class="ml-5">
+            <div class="heart_red">
+              <i class="far fa-heart"></i><%= @post.favorites.count %>
+            </div>
+          </div>
+        </div>
       </div>
       <div>
         <p><%= @post.body %></p>

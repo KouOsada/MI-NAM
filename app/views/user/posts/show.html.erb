@@ -22,7 +22,12 @@
       </div>
       <div class="page-header mt-4">
         <h2 class="post-title"><%= @post.title %></h2>
-        <p>ジャンル：　<%= @post.genre.name %></p>
+        <div class="row">
+          <p>ジャンル：　<%= @post.genre.name %></p>
+          <div id="post_favorites_<%= @post.id %>" class="ml-5">
+            <%= render "user/favorites/favorite-btn", post: @post %>
+          </div>
+        </div>
       </div>
       <div>
         <p>

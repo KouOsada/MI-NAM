@@ -9,27 +9,27 @@
             <th></th>
             <th>タイトル</th>
             <th>投稿者</th>
-            <th>いいね数</th>
-            <th>コメント数</th>
+            <th>いいね</th>
+            <th>コメント</th>
           </tr>
         </thead>
         <tbody>
-          <% @posts.each do |postitem| %>
+          <% @posts.each do |post| %>
             <tr>
               <td>
-                <%= attachment_image_tag postitem, :post_image, size: "80x80", fallback: "no_image.png" %>
+                <%= attachment_image_tag post, :post_image, size: "80x80", fallback: "no_image.png" %>
               </td>
               <td>
-                <%= link_to admin_post_path(postitem.id) do %>
-                  <%= postitem.title %>
+                <%= link_to admin_post_path(post.id) do %>
+                  <%= post.title %>
                 <% end %>
               </td>
               <td>
-                <%= link_to admin_user_path(postitem.user.id) do %>
-                  <%= postitem.user.nickname %>
+                <%= link_to admin_user_path(post.user.id) do %>
+                  <%= post.user.nickname %>
                 <% end %>
               </td>
-              <td></td>
+              <td class="heart_red"><i class="far fa-heart ml-2"></i><%= post.favorites.count %></td>
               <td></td>
             </tr>
           <% end %>

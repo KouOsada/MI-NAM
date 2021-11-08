@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
   
-  
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-  end
   # デバイス管理者側
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -33,8 +23,8 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get 'about' => "homes#about", as: 'about'
     resources :posts do
-      resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
     resources :hashtags, only: [:show]
     resources :users, only: [:show, :edit, :update]
