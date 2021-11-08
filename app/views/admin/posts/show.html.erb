@@ -13,11 +13,9 @@
         <div class="row mx-auto">
           <p>ジャンル：　<%= @post.genre.name %></p>
           <div id="post_favorites_<%= @post.id %>" class="ml-5">
-            <div class="heart_red">
-              <i class="far fa-heart"></i><%= @post.favorites.count %>
-            </div>
             <div class="ml-5">
-              <i class="far fa-comment"></i> <%= @post.favorites.count %>
+              <i class="far fa-heart heart_red"></i><%= @post.favorites.count %>
+              <i class="far fa-comment ml-5"></i> <%= @post.favorites.count %>
             </div>
           </div>
         </div>
