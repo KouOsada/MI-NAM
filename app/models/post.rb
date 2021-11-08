@@ -1,9 +1,10 @@
 class Post < ApplicationRecord
 
-  # 投稿関連のアソシエーション
+  # アソシエーション
   belongs_to :user
   belongs_to :genre
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   #お気に入りにしているかの確認メソッド
   def favorited_by?(user)

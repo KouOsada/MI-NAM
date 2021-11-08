@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  # 投稿関連のアソシエーション
+  # アソシエーション
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :post_comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   # enumの設定
   # 　年齢　0:10代 1:20代 2:30代 3:40代 4:50代以上 
