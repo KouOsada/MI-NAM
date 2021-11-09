@@ -1,0 +1,17 @@
+<div class="contaner">
+  <div class="row">
+    <div class="col-sm-10 mx-auto">
+      <% if @range == 'User' %>
+      	<h2 class="my-5">"<%= @word %>" の検索結果</h2>
+        <%= render 'user/relationships/index', users: @users %>
+      <% elsif @range == 'Post' %>
+      	<h2 class="my-5">"<%= @word %>" の検索結果</h2>
+        <%= render 'user/posts/index', posts: @posts %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
