@@ -1,2 +1,12 @@
-<h1>User::Relationships#followings</h1>
-<p>Find me in app/views/user/relationships/followings.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="my-5"><%= @user.nickname %>さんがフォロー中</h2>
+      <% if @users.exists? %>
+        <%= render 'index', users: @users %>
+      <% else %>
+        <p>まだフォローしていません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>
