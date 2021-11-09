@@ -1,10 +1,10 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="flash"><%= flash[:notice] %></div>
-    <div class="col-md-4 mt-5">
+    <div class="col-md-5 mt-5">
       <%= render 'user/users/info', user: @post.user %>
     </div>
-    <div class="col-md-7 offset-md-1 mt-5 post-show">
+    <div class="col-md-6 offset-md-1 mt-5 post-show">
       <h2 class="mb-5"><%= @post.user.nickname %>さんの投稿</h2>
       <div class="text-center mt-4">
         <%= attachment_image_tag @post, :post_image, size: "300x300", class: "post-show-img" %>
@@ -24,11 +24,11 @@
         <h2 class="post-title"><%= @post.title %></h2>
         <div class="row mx-auto">
           <p class="text-muted">ジャンル：　<%= @post.genre.name %></p>
-          <div id="post_favorites_<%= @post.id %>" class="ml-5">
+          <div id="post_favorites_<%= @post.id %>" class="ml-3">
             <%= render "user/favorites/favorite-btn", post: @post %>
           </div>
-          <div class="ml-5">
-            <i class="far fa-comment"></i> <%= @post.favorites.count %>
+          <div class="ml-3">
+            <i class="far fa-comment"></i> <%= @post.comments.count %>
           </div>
         </div>
       </div>

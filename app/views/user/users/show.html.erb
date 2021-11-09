@@ -1,9 +1,9 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-4 mt-5">
+    <div class="col-md-5 mt-5">
       <%= render 'info', user: @user %>
     </div>
-    <div class="col-md-7 offset-md-1">
+    <div class="col-md-6 offset-md-1">
       <h2 class="my-5"><%= @user.nickname %>さんの投稿</h2>
       <%= render 'user/posts/index', posts: @user.posts %>
     </div>
