@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :user do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   # デバイス管理者側
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -27,7 +31,11 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     resources :hashtags, only: [:show]
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
     get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'
     put 'withdraw/:id' => 'users#withdraw'

@@ -1,29 +1,35 @@
 <div class="row">
   <% posts.each do |post| %>
-    <div class="card m-3">
+    <div class="card m-2">
       <%= link_to post_path(post.id) do %>
         <%= attachment_image_tag(post, :post_image) %>
       <% end %>
       <div class="card-body">
-        <%= link_to post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-        <div id="post_favorites_<%= post.id %>" class="mt-2">
-          <!--ユーザーがログインしている時はいいねが押せる。それ以外はいいね数の表示のみ-->
-          <% if user_signed_in? %>
-            <%= render "user/favorites/favorite-btn", post: post %>
-          <% else %>
-            <div class="heart_red">
-              <i class="far fa-heart"></i><%= post.favorites.count %>
-            </div>
-          <% end %>
-          <!--ユーザーがログインしている時は投稿詳細へのリンク、それ以外はコメント数の表示のみ-->
-          <% if user_signed_in? %>
-            <%= link_to post_path(post.id) do %>
-              <i class="far fa-comment ml-5"></i> <%= post.comments.count %>
+        <div class="row">
+          <div id="post_favorites_<%= post.id %>" class="ml-3">
+            <!--ユーザーがログインしている時はいいねが押せる。それ以外はいいね数の表示のみ-->
+            <% if user_signed_in? %>
+              <%= render "user/favorites/favorite-btn", post: post %>
+            <% else %>
+              <div class="heart_red">
+                <i class="far fa-heart"></i><%= post.favorites.count %>
+              </div>
             <% end %>
-          <% else %>
-            <i class="far fa-comment ml-5"></i> <%= post.comments.count %>
+          </div>
+          <div>
+            <!--ユーザーがログインしている時は投稿詳細へのリンク、それ以外はコメント数の表示のみ-->
+            <% if user_signed_in? %>
+              <%= link_to post_path(post.id) do %>
+                <i class="far fa-comment ml-5"></i> <%= post.comments.count %>
+              <% end %>
+            <% else %>
+              <i class="far fa-comment ml-2"></i> <%= post.comments.count %>
+            <% end %>
+          </div>
+        </div>
+        <div class="mt-2">
+          <%= link_to post_path(post.id) do %>
+            <%= post.title %>
           <% end %>
         </div>
       </div>
