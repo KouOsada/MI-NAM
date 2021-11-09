@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'
     put 'withdraw/:id' => 'users#withdraw'
+    get "search" => "searches#search"
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

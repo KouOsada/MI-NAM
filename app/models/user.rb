@@ -33,6 +33,17 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+  
+  # ユーザー検索機能関連
+  def self.looks(search, word)
+    if search == "perfect"
+      @user = User.where("nickname LIKE ?", "#{word}")
+    elsif search == "partial"
+      @user = User.where("nickname LIKE ?", "%#{word}%")
+    else
+      @user = User.all
+    end
+  end
 
   # enumの設定
   # 　年齢　0:10代 1:20代 2:30代 3:40代 4:50代以上
