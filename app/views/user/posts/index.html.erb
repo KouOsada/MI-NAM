@@ -5,5 +5,8 @@
       <h2 class="my-5">投稿一覧</h2>
       <%= render 'index', posts: @posts %>
     </div>
+    <div class="my-3 mx-auto">
+      <p><%= paginate @posts %></p>
+    </div>
   </div>
 </div>
