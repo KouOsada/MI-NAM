@@ -26,9 +26,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to notifications_path, class: "nav-link" do %>
-              <i class="fas fa-bell"></i> 通知
-            <% end %>
+            <%= render "user/notifications/circle" %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>

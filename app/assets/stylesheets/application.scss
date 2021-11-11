@@ -23,8 +23,6 @@
   padding: 0;
   box-sizing: border-box;
  }
- 
- 
 
  body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -32,6 +30,10 @@
 
  #error_explanation {
   color: red;
+ }
+ 
+ .new-notice {
+  color: orange;
  }
 
  .flash {
@@ -71,15 +73,15 @@
  .post-title {
   border-bottom: 1px solid #c0c0c0;
  }
- 
+
  .hash-name {
   color: blue;
  }
- 
+
  .heart_red {
   color: red;
  }
- 
+
  footer {
   width: 100%;
   height: 100px;
