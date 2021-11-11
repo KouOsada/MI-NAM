@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'
     put 'withdraw/:id' => 'users#withdraw'
     get "search" => "searches#search"
+    resources :notifications, only: [:index]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -8,6 +8,12 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  
+  # 通知モデルとの紐付け
+  # 自分からの通知
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+  # 相手からの通知
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   # フォロー関連
   # 被フォロー側の関係
@@ -18,17 +24,14 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 与フォロー関係を通じて自分がフォローしている人を参照
   has_many :followings, through: :relationships, source: :followed
-  
   #フォローするアクション
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-  
   #フォローを外すアクション
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-  
   #フォローしているか否かの確認
   def following?(user)
     followings.include?(user)
@@ -42,6 +45,20 @@ class User < ApplicationRecord
       @user = User.where("nickname LIKE ?", "%#{word}%")
     else
       @user = User.all
+    end
+  end
+  
+  
+  # フォロー通知の作成メソッド
+  def create_notification_follow!(current_user)
+    # すでにフォローされているかを検索
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
     end
   end
 
