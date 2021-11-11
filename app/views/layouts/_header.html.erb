@@ -26,17 +26,17 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <!--path指定する-->
+            <%= link_to notifications_path, class: "nav-link" do %>
               <i class="fas fa-bell"></i> 通知
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
               <i class="fas fa-sign-out-alt"></i> ログアウト
             <% end %>
           </li>
-
+        <!--管理者ログイン時-->
         <% elsif admin_signed_in? %>
-          <!--管理者ログイン時-->
           <li class="nav-item">
             <%= link_to admin_users_path, class: "nav-link" do %>
               <i class="fas fa-users"></i> 会員
@@ -57,9 +57,8 @@
               <i class="fas fa-sign-out-alt"></i> ログアウト
             <% end %>
           </li>
-
+        <!--ログイン・登録どちらもしていない時-->
         <% else %>
-          <!--ログイン・登録どちらもしていない時-->
           <li class="nav-item">
             <%= link_to about_path, class: "nav-link" do %>
               <i class="fas fa-leaf"></i> MI-NAMについて
@@ -80,7 +79,6 @@
               <i class="fas fa-user-plus"></i> 新規登録
             <% end %>
           </li>
-
         <% end %>
       </ul>
     </div>
