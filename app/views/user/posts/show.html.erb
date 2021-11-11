@@ -47,6 +47,7 @@
       </div>
         <div>
           <%= form_with model: [@post, @comment] do |f| %>
+            <%= render 'layouts/errors', obj: @comment %>
             <div class="form-group">
               <%= f.text_area :comment, class: "form-control", placeholder: "コメントを入力してください" %>
             </div>

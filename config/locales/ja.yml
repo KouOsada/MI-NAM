@@ -6,7 +6,21 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
+    attributes:
+      user:
+        nickname: ニックネーム
+        profile_image_id: プロフィール画像
+        introduction: 自己紹介
+        age: 年齢
+        skin_type: 肌質
+      post:
+        title: タイトル
+        body: 投稿内容
+        post_image: 画像
+        genre: ジャンル
+      comment:
+        comment: コメント
+      
   enums:
     user:
       age:
@@ -22,20 +36,6 @@ ja:
         oily: 脂性肌
         combination: 混合肌
         sensitive: 敏感肌
-
-  attributes:
-    user:
-      nickname: ニックネーム
-      profile_image_id: プロフィール画像
-      introduction: 自己紹介
-      age: 年齢
-      skin_type: 肌質
-
-    post:
-      title: タイトル
-      body: 投稿内容
-      post_image: 画像
-      genre_id: ジャンル
 
   date:
     abbr_day_names:
