@@ -5,6 +5,8 @@ class User::FavoritesController < ApplicationController
     @post = Post.find(params[:post_id])
     favorite = current_user.favorites.new(post_id: @post.id)
     favorite.save
+    # いいねの通知
+    @post.create_notification_like!(current_user)
   end
   
   def destroy

@@ -59,7 +59,7 @@ class User < ApplicationRecord
         action: 'follow'
       )
       notification.save if notification.valid?
-      
+    end
   end
 
   # enumの設定
