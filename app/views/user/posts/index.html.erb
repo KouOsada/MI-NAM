@@ -3,9 +3,9 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2 class="my-5">投稿一覧</h2>
       <%= render 'index', posts: @posts %>
-    </div>
-    <div class="my-3 mx-auto">
-      <p><%= paginate @posts %></p>
+      <div class="my-3 pull-right">
+        <p><%= paginate @posts %></p>
+      </div>
     </div>
   </div>
 </div>
