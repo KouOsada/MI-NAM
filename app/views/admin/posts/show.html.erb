@@ -9,7 +9,19 @@
         <%= attachment_image_tag @post, :post_image, size: "300x300", class: "post-show-img" %>
       </div>
       <div class="page-header mt-4">
-        <h2 class="post-title"><%= @post.title %></h2>
+        <h2 class="post-title post-evaluation" data-score="<%= @post.evaluation %>">
+          <%= @post.title %>
+        </h2>
+        <!--評価した星の数表示-->
+        <script>
+          $('.post-evaluation').raty({
+            readOnly: true,
+            score: function() {
+              return $(this).attr('data-score');
+            },
+            path: '/assets/'
+          });
+        </script>
         <div class="row mx-auto">
           <p>ジャンル：　<%= @post.genre.name %></p>
           <div id="post_favorites_<%= @post.id %>" class="ml-2">

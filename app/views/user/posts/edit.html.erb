@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>投稿編集</h2>
-      
+
       <div class="my-4">
         <%= attachment_image_tag(@post, :post_image, size: "100x100", fallback: "no_image.png") %>
       </div>
-      
+
       <%= form_with model: @post, url: post_path, local: true do |f| %>
         <div class="form-group mb-4">
           <%= f.label "画像" %><br>
@@ -18,11 +18,27 @@
           <%= f.text_field :title, class: "form-control" %>
         </div>
 
+        <div class="form-group mb-4" id="edit-star-<%= @post.id %>">
+          <%= f.label "評価" %>
+          <%= f.hidden_field :evaluation, id: :review_star %>
+        </div>
+
+        <script>
+          $('#edit-star-<%= @post.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            score: <%= @post.evaluation %>,
+            scoreName: 'post[evaluation]',
+          });
+        </script>
+
         <div class="form-group mb-4">
           <%= f.label "投稿内容" %>
           <%= f.text_area :body, class: "form-control", placeholder: "メンズコスメや脱毛など、美容関連であればなんでもOK！お気軽に投稿してください！" %>
         </div>
-        <!--ここにタグ付け-->
 
         <div class="form-group mb-4">
           <%= f.label "ジャンル：　" %>
