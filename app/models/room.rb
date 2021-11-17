@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
-  
-  belongs_to :room
-  belongs_to :user
-  
+
+  has_many :entries, dependent: :destroy
+  has_many :massages, dependent: :destroy
+
 end
