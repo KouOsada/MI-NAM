@@ -4,7 +4,7 @@ class User::RoomsController < ApplicationController
     @room = Room.create
     @entry1 = Entry.create(user_id: current_user.id, room_id: @room.id)
     @entry2 = Entry.create(room_params)
-    redirect_to room_path(@room.id)
+    redirect_to room_path(@room.id, user_id: @entry2.user_id)
   end
   
   def show
@@ -12,7 +12,7 @@ class User::RoomsController < ApplicationController
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.massages.includes(:user)
       @message = Message.new
-      @entries = @room.entries.includes(:user)
+      @entries = @room.entries
       @user = User.find(params[:user_id])
     else
       redirect_back(fallback_location: root_path)

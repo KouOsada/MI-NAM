@@ -1,0 +1,2 @@
+$('#messages_<%= @room.id %>').html("<%= j(render "user/messages/message", messages: @messages) %>");
+$('#message_content').val("");

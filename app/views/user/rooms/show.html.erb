@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="mt-4"><%= @user.nickname %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div id="messages_<%= @room.id %>">
+        <%= render "user/messages/message", messages: @messages %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <%= form_with model: @message do |f| %>
+        <div class="form-group">
+          <%= f.text_field :content, placeholder: "メッセージを入力", class: "form-control" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "送信" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
