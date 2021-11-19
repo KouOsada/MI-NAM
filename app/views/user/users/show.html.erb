@@ -3,8 +3,6 @@
     <div class="flash"><%= flash[:notice] %></div>
     <div class="col-md-5 mt-5">
       <%= render 'info', user: @user %>
-    </div>
-    <div class="col-md-5 mx-auto">
       <% if @is_room == true %>
         <%= link_to "チャット", room_path(@room_id, user_id: @user.id), class: "btn btn-block btn-info" %>
       <% else %>
