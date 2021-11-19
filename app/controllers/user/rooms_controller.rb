@@ -10,7 +10,7 @@ class User::RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
-      @messages = @room.massages.includes(:user)
+      @messages = @room.messages.includes(:user)
       @message = Message.new
       @entries = @room.entries
       @user = User.find(params[:user_id])
@@ -18,9 +18,11 @@ class User::RoomsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
+
   private
+
   def room_params
     params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id)
   end
+  
 end

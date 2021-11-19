@@ -7,8 +7,9 @@ class User::MessagesController < ApplicationController
     end
     @messages = Message.where(room_id: @room.id)
   end
-  
+
   private
+
   def message_params
     params.require(:message).permit(:user_id, :room_id, :content).merge(user_id: current_user.id)
   end
