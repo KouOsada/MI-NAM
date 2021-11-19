@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   namespace :user do
     get 'relationships/followings'
     get 'relationships/followers'
@@ -26,16 +26,21 @@ Rails.application.routes.draw do
   scope module: :user do
     root to: "homes#top"
     get 'about' => "homes#about", as: 'about'
+    resources :rooms, only: [:show, :create]
+    resources :messages, only: [:create]
+    resources :hashtags, only: [:show]
+    
     resources :posts do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :hashtags, only: [:show]
+    
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
+    
     get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'
     put 'withdraw/:id' => 'users#withdraw'

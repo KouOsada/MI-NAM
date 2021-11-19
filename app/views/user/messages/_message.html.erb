@@ -1,0 +1,24 @@
+<div id="chats">
+  <% if messages.present? %>
+    <% messages.each do |message| %>
+      <% if message.user.id == current_user.id %>
+        <div class="my-comment">
+          <p><%= message.content %></p>
+        </div>
+      <% else %>
+        <div class="balloon">
+          <div class="faceicon">
+            <%= attachment_image_tag(message.user, :profile_image, size: "100x100", fallback: "no_image.png", class: "profile_image") %>
+          </div>
+          <div class="chatting">
+            <div class="says">
+              <p><%= message.content %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>チャットを始めよう！</p>
+  <% end %>
+</div>
