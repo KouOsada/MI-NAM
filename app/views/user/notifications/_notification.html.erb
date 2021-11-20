@@ -1,33 +1,36 @@
   <% visitor = notification.visitor %>
   <% visited = notification.visited %>
-  
+
   <div class="mx-auto">
     <div class="form-inline">
       <span>
-        <p>
-          <%= link_to user_path(notification.visitor.id) do %>
+        <p class="mb-0">
+          <%= link_to user_path(visitor.id) do %>
             <%= attachment_image_tag notification.visitor, :profile_image, fallback: "no_image.png", size: "50x50", class: "profile_image" %>
-            <%= notification.visitor.nickname %>
+            <%= visitor.nickname %>
           <% end %>
-          さんが
+          さんから
           <% case notification.action %>
             <% when "follow" then %>
-              あなたをフォローしました
+              フォローされました
             <% when "like" then %>
-              <%= link_to "あなたの投稿", post_path(notification.post.id) %>にいいねしました
+              <%= link_to "あなたの投稿", post_path(notification.post.id) %>にいいねされました
             <% when "comment" then %>
-              <% if notification.post.user_id == notification.visited.id %>
+              <% if notification.post.user_id == visited.id %>
                 <%= link_to "あなたの投稿", post_path(notification.post.id) %>
               <% else %>
                 <%= link_to post_path(notification.post.id) do %>
                   <%= notification.post.user.nickname %>さんの投稿
                 <% end %>
               <% end %>
-              にコメントしました
+              にコメントされました
+              <div class="text-muted mb-0">
+                <%= Comment.find_by(id: notification.comment_id)&.comment %>
+              </div>
+            <% when "dm" then %>
+              <%= link_to "メッセージ", room_path(notification.room.id, user_id: visitor.id) %>
+              が届きました
           <% end %>
-        </p>
-        <p class="text-muted">
-          <%= Comment.find_by(id: notification.comment_id)&.comment %>
         </p>
       </span>
     </div>
@@ -35,5 +38,4 @@
       <%= time_ago_in_words(notification.created_at).upcase %>
     </div>
   </div>
-  
-  
+
