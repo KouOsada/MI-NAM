@@ -3,14 +3,16 @@
     <div class="flash"><%= flash[:notice] %></div>
     <div class="col-md-5 mt-5">
       <%= render 'info', user: @user %>
-      <% if @is_room == true %>
-        <%= link_to "チャット", room_path(@room_id, user_id: @user.id), class: "btn btn-block btn-info" %>
-      <% else %>
-        <%= form_with model: @room, url: rooms_path, local: true do |f| %>
-          <%= fields_for @entry do |e| %>
-            <%= e.hidden_field :user_id, value: @user.id %>
+      <% if @user != current_user %>
+        <% if @is_room == true %>
+          <%= link_to "チャット", room_path(@room_id, user_id: @user.id), class: "btn btn-block btn-info" %>
+        <% else %>
+          <%= form_with model: @room, url: rooms_path, local: true do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: @user.id %>
+            <% end %>
+            <%= f.submit " チャットを始める", class: "btn btn-block btn-success" %>
           <% end %>
-          <%= f.submit " チャットを始める", class: "btn btn-block btn-success" %>
         <% end %>
       <% end %>
     </div>
