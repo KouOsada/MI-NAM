@@ -30,9 +30,6 @@
             <% when "dm" then %>
               <%= link_to "メッセージ", room_path(notification.room.id, user_id: visitor.id) %>
               が届きました
-              <div class="text-muted mb-0">
-                <%= Message.find_by(id: notification.message_id)&.content %>
-              </div>
           <% end %>
         </p>
       </span>
