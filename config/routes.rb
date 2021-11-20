@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     patch 'users/:id/withdraw/' => 'users#withdraw', as: 'withdraw'
     put 'withdraw/:id' => 'users#withdraw'
     get "search" => "searches#search"
+    get "pv_ranking" => 'posts#pv_ranking'
     resources :notifications, only: [:index]
   end
 

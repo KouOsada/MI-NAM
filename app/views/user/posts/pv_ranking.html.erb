@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <h2 class="my-5">PVランキング</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @pv_ranking.each do |pr| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= attachment_image_tag pr, :post_image, size: "80x80", fallback: "no_image.png" %>
+              </td>
+              <td>
+                <%= link_to post_path(pr.id) do %>
+                  <%= pr.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to user_path(pr.user.id) do %>
+                  <%= pr.user.nickname %>
+                <% end %>
+              </td>
+              <td>
+                <i class="fas fa-eye"></i> <%= pr.impressions.count %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

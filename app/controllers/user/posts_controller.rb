@@ -1,6 +1,7 @@
 class User::PostsController < ApplicationController
   include HashtagMethods
   before_action :authenticate_user!, except: [:index]
+  impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def new
     @post = Post.new
@@ -27,6 +28,7 @@ class User::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    @views = @post.impressions.size #PV数を取得
     # idのみを配列にして返す
     related_records = PostHashtag.where(post_id: @post.id).pluck(:hashtag_id)
     hashtags = Hashtag.all
@@ -34,6 +36,10 @@ class User::PostsController < ApplicationController
     @hashtags = hashtags.select{|hashtag| related_records.include?(hashtag.id)}
     # ハッシュタグが文字列のまま表示されるので、＃から始まる文字列を""に変換して表示
     @display_body = @post.body.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/,"")
+  end
+  
+  def pv_ranking
+    @pv_ranking = Post.find(Impression.group(:impressionable_id).order('count(impressionable_id) desc').limit(3).pluck(:impressionable_id))
   end
 
   def edit
