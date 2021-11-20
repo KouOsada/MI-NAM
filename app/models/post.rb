@@ -70,6 +70,9 @@ class Post < ApplicationRecord
   end
 
   attachment :post_image
+  
+  # impressionist用。PV数表示のために後半も記載
+  is_impressionable counter_cache: true
 
   # バリデーション
   validates :title, presence: true

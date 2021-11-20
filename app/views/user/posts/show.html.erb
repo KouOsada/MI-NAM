@@ -15,9 +15,7 @@
             <i class="fas fa-edit"></i>
           <% end %>
         <% else %>
-          <%= link_to user_path(@post.user) do %>
-            <i class="far fa-user"></i> <%= @post.user.nickname %>さんの詳細
-          <% end %>
+          <i class="fas fa-eye"></i> <%= @views %>
         <% end %>
       </div>
       <div class="page-header mt-4">

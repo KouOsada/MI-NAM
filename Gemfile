@@ -71,6 +71,8 @@ gem 'kaminari', '~> 1.2.1'
 gem 'devise-i18n'
 gem "enum_help"
 gem 'dotenv-rails'
+gem 'impressionist', '~>1.6.1'
+
 group :production do
   gem 'mysql2'
 end
