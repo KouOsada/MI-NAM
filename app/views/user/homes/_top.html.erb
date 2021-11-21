@@ -1,0 +1,85 @@
+<% if user_signed_in? %>
+  <h4 class="top-title">
+    ようこそ <%= current_user.nickname %> さん！！
+  </h4>
+  <div class="top-contents mx-auto">
+    <div class="d-flex justify-content-around">
+      <div class="text-center">
+        <%= link_to posts_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-book-open"></i><br>
+           投稿一覧
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to pv_ranking_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-chart-line"></i><br>
+          ランキング
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to about_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-landmark"></i><br>
+          MI-NAM
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% elsif admin_signed_in? %>
+  <h4 class="top-title">
+    管理者ページ
+  </h4>
+  <div class="top-contents mx-auto">
+    <div class="d-flex justify-content-around">
+      <div class="text-center">
+        <%= link_to posts_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-book-open"></i><br>
+           投稿一覧
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to admin_users_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-users"></i><br>
+          会員一覧
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to admin_genres_path, class: "top-link" do %>
+          <i class="fas fa-list"></i><br>
+          ジャンル
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h4 class="top-title">
+    MI-NAMを利用するためには、会員登録が必要です。
+  </h4>
+  <div class="top-contents mx-auto">
+    <div class="d-flex justify-content-around">
+      <div class="text-center">
+        <%= link_to posts_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-book-open"></i><br>
+           投稿一覧
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to about_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-landmark"></i><br>
+          MI-NAM
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to new_user_registration_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-user-plus"></i><br>
+          会員登録
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to new_user_session_path, class: "top-link" do %>
+          <i class="fas fa-4x fa-sign-in-alt"></i><br>
+          ログイン
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

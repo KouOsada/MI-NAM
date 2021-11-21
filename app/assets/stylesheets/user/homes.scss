@@ -1,3 +1,24 @@
 // Place all the styles related to the user/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#theTarget {
+  text-align: center;
+}
+
+.top-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-contents {
+  width: 100%;
+}
+
+.top-link {
+  color: black;
+}
+
+.top-link:hover {
+  color: black;
+}
