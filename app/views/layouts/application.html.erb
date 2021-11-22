@@ -12,21 +12,23 @@
   </head>
 
   <body>
-    <header>
-      <%= render "layouts/header" %>
-    </header>
-    
-    <main>
-      <div class="row">
-        <div class="col-10 mx-auto" style="margin-top: 25px;">
-          <%= render 'layouts/search_form' %>
+    <div id="container">
+      <header>
+        <%= render "layouts/header" %>
+      </header>
+      
+      <main>
+        <div class="row search_form">
+          <div class="col-10 mx-auto" style="margin-top: 25px;">
+            <%= render 'layouts/search_form' %>
+          </div>
         </div>
-      </div>
-      <%= yield %>
-    </main>
-    
-    <footer>
-      <%= render "layouts/footer" %>
-    </footer>
+        <%= yield %>
+      </main>
+      
+      <footer>
+        <%= render "layouts/footer" %>
+      </footer>
+    </div>
   </body>
 </html>
