@@ -2,6 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main-visual {
+  width: 100%;
+  height: 600px;
+}
+
+// スライドショー用
+.image1 {
+  background-image: image-url('top-image1.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
+.image2 {
+  background-image: image-url('top-image2.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
+.image3 {
+  background-image: image-url('top-image3.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
+.image4 {
+  background-image: image-url('top-image4.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
+.image5 {
+  background-image: image-url('top-image5.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
+.image6 {
+  background-image: image-url('top-image6.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
+.image7 {
+  background-image: image-url('top-image7.jpg');
+  background-size: cover;
+  position: relative;
+	background-position: center;
+}
+
 #theTarget {
   text-align: center;
 }
