@@ -34,4 +34,5 @@ https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV23
 - IDE：Cloud9
 
 ## 使用素材
-- 現時点では未定です。
+- トップページのスライドショー画像(フリー素材)
+- https://webdesigner-go.com/proskill/free-stock-photos/
