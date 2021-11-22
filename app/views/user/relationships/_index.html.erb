@@ -1,39 +1,27 @@
-
-  <table class="table">
-    <thead>
+<table class="table">
+  <tbody>
+    <% users.each do |user| %>
       <tr>
-        <th></th>
-        <th>ニックネーム</th>
-        <th>プロフィール</th>
-        <th></th>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "no_image.png" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= user.nickname %>
+          <% end %>
+        </td>
+        <td class="text-right">
+          <% if current_user != user %>
+            <% if current_user.following?(user) %>
+              <%= link_to "フォロー中", user_relationships_path(user.id), method: :delete, class: "btn btn-info rounded-pill pull-right" %>
+            <% else %>
+              <%= link_to "フォロー", user_relationships_path(user.id), method: :post, class: "btn btn-outline-info rounded-pill pull-right" %>
+            <% end %>
+          <% end %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% users.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user.id) do %>
-              <%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "no_image.png" %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to user_path(user.id) do %>
-              <%= user.nickname %>
-            <% end %>
-          </td>
-          <td>
-            <%= user.introduction %>
-          </td>
-          <td>
-            <% if current_user != user %>
-              <% if current_user.following?(user) %>
-                <%= link_to "フォロー中", user_relationships_path(user.id), method: :delete, class: "btn btn-info rounded-pill pull-right" %>
-              <% else %>
-                <%= link_to "フォロー", user_relationships_path(user.id), method: :post, class: "btn btn-outline-info rounded-pill pull-right" %>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>  
-    </tbody>
-  </table>
+    <% end %>  
+  </tbody>
+</table>

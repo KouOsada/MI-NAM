@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <h4 class="top-title">
+  <h4 class="top-title my-5">
     ようこそ <%= current_user.nickname %> さん！！
   </h4>
   <div class="top-contents mx-auto">
@@ -12,7 +12,7 @@
       </div>
       <div class="text-center">
         <%= link_to pv_ranking_path, class: "top-link" do %>
-          <i class="fas fa-4x fa-chart-line"></i><br>
+          <i class="fas fa-4x fa-chart-line"></i></i><br>
           ランキング
         <% end %>
       </div>
@@ -25,7 +25,7 @@
     </div>
   </div>
 <% elsif admin_signed_in? %>
-  <h4 class="top-title">
+  <h4 class="top-title my-5">
     管理者ページ
   </h4>
   <div class="top-contents mx-auto">
@@ -51,7 +51,7 @@
     </div>
   </div>
 <% else %>
-  <h4 class="top-title">
+  <h4 class="top-title my-5">
     MI-NAMを利用するためには、会員登録が必要です。
   </h4>
   <div class="top-contents mx-auto">
