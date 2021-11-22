@@ -30,8 +30,18 @@
 
  nav img {
   border-radius: 20px;
-  border: solid #f5deb3;
+  border: solid #faebd7;
  }
+ 
+ .navbar-toggler {
+  background-color: #faebd7;
+}
+
+.nav-link {
+ color: #faebd7!important;
+ text-align: right;
+ letter-spacing: .06em;
+}
 
  body {
   width: 100%;
@@ -117,4 +127,5 @@
  .footer-text {
   line-height: 100px;
   text-align: center;
+  color: #faebd7;
  }
