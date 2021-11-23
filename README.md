@@ -23,7 +23,7 @@
 ## 設計書
 - ER図(https://drive.google.com/file/d/1854Ahzt8Wa5VZD6K63XXckEhZB2yn_Gk/view?usp=sharing)
 - テーブル定義書(https://docs.google.com/spreadsheets/d/1gGl4lP8dw79bHpRW_bITQzyknHJLB1Yr7jK7Tkv9kTg/edit?usp=sharing)
-- アプリケーション詳細設計()
+- アプリケーション詳細設計(https://docs.google.com/spreadsheets/d/1m_Ivz8S8MI5rbcyxV4qxJyjcipN8SR3XA7mzTaHoQxs/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV239Oc/edit?usp=sharing
