@@ -2,7 +2,7 @@
   <div class="flash"><%= flash[:notice] %></div>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>会員登録</h2>
+      <h2 class="mb-3">会員登録</h2>
 
       <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
         <%= render "user/shared/error_messages", resource: resource %>
@@ -50,8 +50,8 @@
           <%= f.select :skin_type, User.skin_types.keys.map {|k| [I18n.t("enums.user.skin_type.#{k}"), k]} %>
         </div>
       
-        <div class="form-group  text-right">
-          <%= f.submit "登録", class: "btn btn-success btn-block rounded-pull" %>
+        <div class="form-group">
+          <%= f.submit "登録", class: "btn btn-outline-info btn-block rounded-pill" %>
         </div>
       <% end %>
       

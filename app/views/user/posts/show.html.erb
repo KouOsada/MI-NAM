@@ -55,6 +55,9 @@
       <div class="page-header">
         <p class="text-muted">コメント</p>
       </div>
+        <div id="post_comments_<%= @post.id %>">
+          <%= render "user/comments/comment", post: @post %>
+        </div>
         <div>
           <%= form_with model: [@post, @comment] do |f| %>
             <%= render 'layouts/errors', obj: @comment %>
@@ -65,9 +68,6 @@
               <%= f.submit "送信", class: "btn btn-info rounded-pill" %>
             </div>
           <% end %>
-        </div>
-        <div id="post_comments_<%= @post.id %>">
-          <%= render "user/comments/comment", post: @post %>
         </div>
     </div>
   </div>

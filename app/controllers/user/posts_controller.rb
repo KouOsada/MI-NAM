@@ -22,7 +22,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order.per(10)
+    @posts = Post.page(params[:page]).reverse_order.per(6)
   end
 
   def show
