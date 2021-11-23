@@ -21,7 +21,9 @@
 - 男性向けの製品/サービスを使った際の経過を共有する時
 
 ## 設計書
-- 完成次第載せます。
+- ER図(https://drive.google.com/file/d/1854Ahzt8Wa5VZD6K63XXckEhZB2yn_Gk/view?usp=sharing)
+- テーブル定義書(https://docs.google.com/spreadsheets/d/1gGl4lP8dw79bHpRW_bITQzyknHJLB1Yr7jK7Tkv9kTg/edit?usp=sharing)
+- アプリケーション詳細設計()
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV239Oc/edit?usp=sharing
