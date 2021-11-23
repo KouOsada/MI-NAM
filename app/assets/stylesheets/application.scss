@@ -32,7 +32,7 @@
   border-radius: 20px;
   border: solid #faebd7;
  }
- 
+
  .navbar-toggler {
   background-color: #faebd7;
 }
@@ -52,6 +52,17 @@
 
  #error_explanation {
   color: red;
+ }
+
+ .input-btn {
+  display: block;
+  background-color: #faebd7;
+  width: 180px;
+  height: 30px;
+  border-radius: 5px;
+  padding-top: 2px;
+  color: #000000;
+  text-align: center;
  }
 
  .new-notice {
@@ -128,4 +139,29 @@
   line-height: 100px;
   text-align: center;
   color: #faebd7;
+ }
+
+
+ @media screen and (max-width:768px) {
+  // メインビジュアル
+  .main-visual {
+   width: 100%;
+   height: 300px;
+  }
+
+  .bottom-space {
+   margin-bottom: 15px;
+  }
+
+  .card {
+   width: 100%;
+  }
+
+  .post-evaluation img {
+   size: 20px;
+  }
+  
+  h2 {
+   font-size: 25px;
+  }
  }

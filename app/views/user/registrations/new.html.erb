@@ -30,9 +30,9 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
         
-        <div class="form-group">
-          <%= f.label "プロフィール画像" %><br />
-          <%= f.attachment_field :profile_image %>
+        <div class="mt-2">
+          <%= f.label :profile_image, "プロフィール画像", class: "input-btn" %><br />
+          <%= f.attachment_field :profile_image, class: "d-none" %>
         </div>
         
         <div class="form-group">

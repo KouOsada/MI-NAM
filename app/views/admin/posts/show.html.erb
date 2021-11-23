@@ -22,13 +22,11 @@
             path: '/assets/'
           });
         </script>
-        <div class="row mx-auto">
+        <div class="mb-3">
           <p>ジャンル：　<%= @post.genre.name %></p>
           <div id="post_favorites_<%= @post.id %>" class="ml-2">
-            <div class="ml-5">
-              <i class="far fa-heart heart_red"></i><%= @post.favorites.count %>
-              <i class="far fa-comment ml-2"></i> <%= @post.favorites.count %>
-            </div>
+            <i class="far fa-heart heart_red"></i><%= @post.favorites.count %>
+            <i class="far fa-comment ml-2"></i> <%= @post.favorites.count %>
           </div>
         </div>
       </div>
