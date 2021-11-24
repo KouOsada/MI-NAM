@@ -10,10 +10,10 @@
         <%= attachment_image_tag @post, :post_image, size: "300x300", class: "post-show-img" %>
       </div>
       <div class="mt-3">
-        <div class="post-evaluation" data-score="<%= @post.evaluation %>">
+        <div class="post-show-evaluation" data-score="<%= @post.evaluation %>">
           <!--評価した星の数表示-->
           <script>
-            $('.post-evaluation').raty({
+            $('.post-show-evaluation').raty({
               readOnly: true,
               starOn: "<%= asset_path('star-on.png') %>",
               starOff: "<%= asset_path('star-off.png') %>",
