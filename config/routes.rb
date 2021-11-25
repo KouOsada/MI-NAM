@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'admins/edit'
+  end
   namespace :user do
     get 'relationships/followings'
     get 'relationships/followers'
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
   # 管理者側ルーティング
   namespace :admin do
     resources :users, only: [:index, :show]
+    resources :admins, only: [:edit, :update]
     resources :posts, only: [:index, :show]
     resources :genres, only: [:create, :index, :edit, :update, :destroy]
   end

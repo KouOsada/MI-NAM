@@ -1,13 +1,30 @@
 # MI-NAM
+![minam](https://user-images.githubusercontent.com/88307473/143388555-c32280fb-3407-41e3-9323-215fc545f1cd.png)
+![responsive-minam](https://user-images.githubusercontent.com/88307473/143388703-8772d431-d5dc-42bb-8329-e6a7fd5eebba.png)
 
 ## サイト概要
-近年著しい成長を遂げる男性の美容市場。既に様々な製品やサービスがあり、次々と新作が生み出される中で、自分に合うものを見つけるのは困難です。ユーザーが試したコスメや体験したサービスのレビューを投稿しコメントを交わすことで、他人の情報をもとに未知の製品/サービスを試すきっかけづくりとなれるサイトです。美容先進国として知られる韓国の単語より、미용(ミヨン、美容)と남성(ナムソン、男性)を合わせて、MI-NAM(ミナム)と名付けました。
+近年著しい成長を遂げる男性の美容市場。様々な製品やサービスがあり次々と新作が生み出される中で、自分に合うものを探すのは難しいです。  
+MI-NAMはユーザーが試したコスメや体験したサービスのレビューを投稿しコメントを交わすことで、他人の情報をもとに未知の製品/サービスを試すきっかけづくりとなれるサイトです。  
+美容先進国として知られる韓国の単語より、미용(ミヨン、美容)と남성(ナムソン、男性)を合わせて、MI-NAM(ミナム)と名付けました。
+
+## URL
+[MI-NAM](http://18.180.224.99/). 
+- 会員アカウント(架空)
+  1.メールアドレス：kim@gmail.com
+    パスワード：kkkkkk
+  1.メールアドレス：park@gmail.com
+    パスワード：pppppp
+- 管理者アカウント. 
+  メールアドレス：minam-admin@hoge.com. 
+  パスワード：111111
 
 ### サイトテーマ
 男性向けの美容関連情報を交換できる交流サイト
 
 ### テーマを選んだ理由
-私は以前化粧品販売を経験しましたが、男性の接客で最も多く頂戴したのが「どの製品を使用すべきか分からない」という意見でした。今、世の中には男性向けの製品やサービスが多く存在します。しかし一般的な美容情報サイトでのレビューは、肌質の違う女性からのの投稿が多く参考にし難い現状があります。この現状が美容への壁を作ってしまっていると痛感しました。美容に詳しい男性から今後スキンケアなどを始めていきたいという初心者の方まで、男性という同じ視点でレビューや交流をすることで、製品/サービス選びの障壁を解消したいと思い今回のテーマにしました。
+私は以前化粧品販売を経験しましたが、男性の接客で最も多く頂戴したのが「どの製品を使用すべきか分からない」という意見でした。
+気になるものを見つけた時、参考としてレビューサイトを利用すると思います。しかし一般的な美容情報サイトのレビューは、肌質の違う女性からの投稿が多く参考にできないのが現状です。  
+この現状が美容への壁を作ってしまっていると感じたため今回のテーマにしました。男性という同じ視点で交流をすることで、美容へのハードルを解消できるようなサイトを制作します。
 
 ### ターゲットユーザ
 - 美容が好きな男性
@@ -21,9 +38,9 @@
 - 男性向けの製品/サービスを使った際の経過を共有する時
 
 ## 設計書
-- ER図(https://drive.google.com/file/d/1854Ahzt8Wa5VZD6K63XXckEhZB2yn_Gk/view?usp=sharing)
-- テーブル定義書(https://docs.google.com/spreadsheets/d/1gGl4lP8dw79bHpRW_bITQzyknHJLB1Yr7jK7Tkv9kTg/edit?usp=sharing)
-- アプリケーション詳細設計(https://docs.google.com/spreadsheets/d/1m_Ivz8S8MI5rbcyxV4qxJyjcipN8SR3XA7mzTaHoQxs/edit?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1854Ahzt8Wa5VZD6K63XXckEhZB2yn_Gk/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1gGl4lP8dw79bHpRW_bITQzyknHJLB1Yr7jK7Tkv9kTg/edit?usp=sharing)
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1m_Ivz8S8MI5rbcyxV4qxJyjcipN8SR3XA7mzTaHoQxs/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV239Oc/edit?usp=sharing
@@ -36,4 +53,4 @@ https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV23
 - IDE：Cloud9
 
 ## 使用素材
-- トップページのスライドショー画像(フリー素材)  https://unsplash.com/
+- [unsplash](https://unsplash.com/)
