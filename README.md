@@ -11,13 +11,17 @@ MI-NAMはユーザーが試したコスメや体験したサービスのレビ�
 [MI-NAM](http://18.180.224.99/)
 
 - 会員アカウント(架空)
+<br>
  1.kim
+<br>
   - メールアドレス：kim@gmail.com>
   - パスワード：kkkkkk
+<br>
  2.park
+<br>
   - メールアドレス：park@gmail.com
   - パスワード：pppppp
-<br>
+
 - 管理者アカウント(URLの後ろに "admin/sign_in" と入力すると管理者ログインページです。)
  - メールアドレス：minam-admin@hoge.com
  - パスワード：111111
