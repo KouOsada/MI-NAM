@@ -33,6 +33,22 @@ MI-NAMはユーザーが試したコスメや体験したサービスのレビ�
 - 美容についての悩みや気になることがあり、情報を集めたい時
 - 男性向けの製品/サービスを使った際の経過を共有する時
 
+## 機能一覧
+- ユーザー側
+  - 新規登録・ログイン/ログアウト・退会(論理削除)・編集
+  - レビュー投稿
+  - いいね機能(Ajax)
+  - コメント機能(Ajax)
+  - ハッシュタグ機能
+  - PVランキング表示(impressionist)
+  - フォロー機能
+  - 検索機能
+- 管理者側
+  - ログイン/ログアウト
+  - 投稿一覧・詳細表示
+  - 会員一覧・詳細表示
+  - ジャンル作成・編集・削除
+
 ## 設計書
 - [ER図](https://drive.google.com/file/d/1854Ahzt8Wa5VZD6K63XXckEhZB2yn_Gk/view?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1gGl4lP8dw79bHpRW_bITQzyknHJLB1Yr7jK7Tkv9kTg/edit?usp=sharing)
@@ -44,7 +60,7 @@ https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV23
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
+- フレームワーク：Ruby on Rails・Bootstrap
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
