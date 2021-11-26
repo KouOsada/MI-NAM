@@ -11,7 +11,17 @@ MI-NAMはユーザーが試したコスメや体験したサービスのレビ�
 [MI-NAM](http://18.180.224.99/) <br>
 [MI-NAM(管理者用)](http://18.180.224.99/admin/sign_in)
 
-<img width="311" alt="スクリーンショット 2021-11-25 16 05 53" src="https://user-images.githubusercontent.com/88307473/143514960-410e06be-aea6-49ce-9aca-4f4e9a3ab2c9.png">
+##### 【会員アカウント】
+- kim
+  - メールアドレス：kim@gmail.com
+  - パスワード：kkkkkk
+- park
+  - メールアドレス：park@gmail.com
+  - パスワード：pppppp
+
+##### 【管理者アカウント】
+- メールアドレス：minam-admin@gmail.com
+- パスワード：111111
 
 ### サイトテーマ
 男性向けの美容関連情報を交換できる交流サイト
@@ -60,7 +70,7 @@ https://docs.google.com/spreadsheets/d/1pshf_odgvj2FXlt4E1ZGLc7dWveFmdKqB9kwsV23
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails・Bootstrap
+- フレームワーク：Ruby on Rails,Bootstrap
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
