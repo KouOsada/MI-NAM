@@ -9,8 +9,9 @@ MI-NAMはユーザーが試したコスメや体験したサービスのレビ�
 
 ## URL
 [MI-NAM](http://18.180.224.99/)
+[MI-NAM(管理者用)](http://18.180.224.99/admin/sign_in)
 
-<img width="449" alt="スクリーンショット 2021-11-26 10 33 56" src="https://user-images.githubusercontent.com/88307473/143513939-10dfff47-f136-410e-85f0-fe512451cde3.png">
+<img width="311" alt="スクリーンショット 2021-11-25 16 05 53" src="https://user-images.githubusercontent.com/88307473/143514960-410e06be-aea6-49ce-9aca-4f4e9a3ab2c9.png">
 
 ### サイトテーマ
 男性向けの美容関連情報を交換できる交流サイト
