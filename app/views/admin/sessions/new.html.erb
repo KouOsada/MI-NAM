@@ -1,7 +1,7 @@
 <div class="container my-5">
-  <div class="flash"><%= flash[:notice] %></div>
   <div class="row">
     <div class="col-10 mx-auto">
+      <div class="mb-4 flash"><%= flash[:notice] %></div>
       <h2 class="mb-3">管理者ログイン</h2>
       <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
         <div class="form-group">
