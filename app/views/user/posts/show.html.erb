@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="flash"><%= flash[:notice] %></div>
     <div class="col-md-5 mt-5">
+      <div class="flash"><%= flash[:notice] %></div>
       <%= render 'user/users/info', user: @post.user %>
     </div>
     <div class="col-md-6 offset-md-1 mt-5 post-show">
