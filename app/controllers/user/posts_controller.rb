@@ -10,6 +10,7 @@ class User::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.score = Language.get_data(post_params[:body])
     # @postのbodyからハッシュタグを抽出
     hashtag = extract_hashtag(@post.body) 
     if @post.save
@@ -48,6 +49,7 @@ class User::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.score = Language.get_data(post_params[:body])
     # 中間テーブルとハッシュタグのレコードを削除するメソッド
     delete_records_related_hashtag(params[:id])
     if @post.update(post_params)
