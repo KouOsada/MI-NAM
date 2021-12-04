@@ -9,6 +9,7 @@
             <th></th>
             <th>タイトル</th>
             <th>投稿者</th>
+            <th>感情スコア</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                 <%= link_to admin_user_path(post.user.id) do %>
                   <%= post.user.nickname %>
                 <% end %>
+              </td>
+              <td class="sentiment-score text-center">
+                <%= post.score %>
               </td>
             </tr>
           <% end %>
