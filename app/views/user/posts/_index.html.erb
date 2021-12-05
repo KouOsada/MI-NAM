@@ -28,8 +28,14 @@
           </div>
         </div>
         <div class="mt-2">
-          <%= link_to post_path(post.id), class: "post-link" do %>
-            <%= post.title %> ...
+          <% if user_signed_in? %>
+            <%= link_to post_path(post.id), class: "post-link" do %>
+              <%= post.title %> ...
+            <% end %>
+          <% elsif admin_signed_in? %>
+            <%= link_to admin_post_path(post.id), class: "post-link" do %>
+              <%= post.title %>
+            <% end %>
           <% end %>
         </div>
       </div>
