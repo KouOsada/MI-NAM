@@ -13,14 +13,14 @@ MI-NAMはユーザーが試したコスメや体験したサービスのレビ�
 
 ##### 【会員アカウント】
 - kim
-  - メールアドレス：kim@gmail.com
+  - メールアドレス：kim@test.com
   - パスワード：kkkkkk
 - park
-  - メールアドレス：park@gmail.com
+  - メールアドレス：park@test.com
   - パスワード：pppppp
 
 ##### 【管理者アカウント】
-- メールアドレス：minam-admin@gmail.com
+- メールアドレス：admin@minam.com
 - パスワード：111111
 
 ### サイトテーマ
