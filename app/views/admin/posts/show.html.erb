@@ -36,7 +36,7 @@
           <p>ジャンル：　<%= @post.genre.name %></p>
           <div id="post_favorites_<%= @post.id %>" class="ml-2">
             <i class="far fa-heart heart_red"></i><%= @post.favorites.count %>
-            <i class="far fa-comment ml-2"></i> <%= @post.favorites.count %>
+            <i class="far fa-comment ml-2 icons"></i> <%= @post.favorites.count %>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
         <p><%= @post.body %></p>
       </div>
       <div class="text-right mb-3">
-        <%= link_to "削除", admin_post_path(@post), method: :delete, class: "btn btn-danger rounded-pill", data: {confirm: '本当に削除しますか？'} %>
+        <%= link_to "削除", admin_post_path(@post), method: :delete, class: "btn btn-outline-danger rounded-pill", data: {confirm: '本当に削除しますか？'} %>
       </div>
     </div>
   </div>

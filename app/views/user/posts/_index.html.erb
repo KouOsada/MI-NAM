@@ -19,17 +19,17 @@
           <div>
             <!--ユーザーがログインしている時は投稿詳細へのリンク、それ以外はコメント数の表示のみ-->
             <% if user_signed_in? %>
-              <%= link_to post_path(post.id) do %>
+              <%= link_to post_path(post.id), class: "icons" do %>
                 <i class="far fa-comment ml-5"></i> <%= post.comments.count %>
               <% end %>
             <% else %>
-              <i class="far fa-comment ml-2"></i> <%= post.comments.count %>
+              <i class="far fa-comment ml-2 icons"></i> <%= post.comments.count %>
             <% end %>
           </div>
         </div>
         <div class="mt-2">
-          <%= link_to post_path(post.id) do %>
-            <%= post.title %>
+          <%= link_to post_path(post.id), class: "post-link" do %>
+            <%= post.title %> ...
           <% end %>
         </div>
       </div>
