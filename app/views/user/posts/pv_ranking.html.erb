@@ -12,18 +12,18 @@
           </tr>
         </thead>
         <% @pv_ranking.each do |pr| %>
-          <tbody>
+          <tbody class="icons">
             <tr>
               <td>
                 <%= attachment_image_tag pr, :post_image, size: "80x80", fallback: "no_image.png" %>
               </td>
               <td>
-                <%= link_to post_path(pr.id) do %>
+                <%= link_to post_path(pr.id), class: "pv-rank" do %>
                   <%= pr.title %>
                 <% end %>
               </td>
               <td>
-                <%= link_to user_path(pr.user.id) do %>
+                <%= link_to user_path(pr.user.id), class: "pv-rank" do %>
                   <%= pr.user.nickname %>
                 <% end %>
               </td>

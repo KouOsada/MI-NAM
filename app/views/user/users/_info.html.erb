@@ -40,14 +40,14 @@
     <!--ログイン者がユーザーの場合はフォロー・フォロワーの一覧へ飛ぶ。管理者の場合は数字のみ。-->
     <td colspan="2">
       <% if user_signed_in? %>
-        <%= link_to user.followings.count, user_followings_path(user) %> フォロー
+        <%= link_to user.followings.count, user_followings_path(user), class: "follow-link" %> フォロー
       <% else %>
         <%= user.followings.count %> フォロー
       <% end %>
     </td>
     <td colspan="2">
       <% if user_signed_in? %>
-        <%= link_to user.followers.count, user_followers_path(user) %> フォロワー
+        <%= link_to user.followers.count, user_followers_path(user), class: "follow-link" %> フォロワー
       <% else %>
         <%= user.followers.count %> フォロワー
       <% end %>

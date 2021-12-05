@@ -10,7 +10,7 @@
               <%= attachment_image_tag @posts[i], :post_image %>
             <% end %>
             <div class="card-body">
-              <%= link_to post_path(post["id"]) do %>
+              <%= link_to post_path(post["id"]), class: "icons" do %>
                 <%= post["body"] %>
               <% end %>
             </div>

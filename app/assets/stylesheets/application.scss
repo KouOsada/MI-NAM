@@ -51,7 +51,11 @@
  }
 
  #error_explanation {
-  color: red;
+  color: #dc143c!important;
+ }
+ 
+ a:hover {
+  text-decoration: none;
  }
 
  .input-btn {
@@ -64,13 +68,21 @@
   color: #000000;
   text-align: center;
  }
+ 
+ .post-link {
+  color: #000000!important;
+ }
+ 
+ .follow-link {
+  color: #20b2aa!important;
+ }
 
  .new-notice {
   color: orange;
  }
 
  .flash {
-  color: green;
+  color: #20b2aa!important;
  }
 
  .table th {
@@ -100,7 +112,15 @@
  }
  
  .warning-message {
-  color: #dc143c;
+  color: #dc143c!important;
+ }
+ 
+ .link-icons {
+  color: #20b2aa!important;
+ }
+ 
+ .icons {
+  color: #808080!important;
  }
 
  .post-show-img {
@@ -116,11 +136,15 @@
  }
 
  .hash-name {
-  color: blue;
+  color: #20b2aa!important;
  }
 
  .heart_red {
-  color: red;
+  color: #dc143c!important;
+ }
+ 
+ .pv-rank {
+  color: #000000!important;
  }
 
 // フッター固定のCSS

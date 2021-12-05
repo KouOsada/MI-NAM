@@ -25,16 +25,16 @@
           </script>
           <div class="text-right">
             <% if @post.user == current_user %>
-              <%= link_to edit_post_path(@post.id) do %>
+              <%= link_to edit_post_path(@post.id), class: "link-icons" do %>
                 <i class="fas fa-edit"></i>
               <% end %>
             <% else %>
-              <i class="fas fa-eye"></i> <%= @views %>
+              <i class="fas fa-eye icons"></i> <%= @views %>
             <% end %>
           </div>
         </div>
         <div class="sentiment-score">
-          この投稿の感情分析スコア  
+          この投稿の感情分析スコア
           <% if @post.score >= -0.2 %>
             <i class="fas fa-angle-left"></i>  <%= @post.score %>  <i class="fas fa-angle-right"></i>
           <% else %>
@@ -61,7 +61,7 @@
           <div id="post_favorites_<%= @post.id %>" class="ml-3">
             <%= render "user/favorites/favorite-btn", post: @post %>
           </div>
-          <div class="ml-3">
+          <div class="ml-3 icons">
             <i class="far fa-comment"></i> <%= @post.comments.count %>
           </div>
         </div>
@@ -71,7 +71,7 @@
           <%= @display_body %><br>
           <% if @hashtags.present? %>
             <% @hashtags.each do |hashtag| %>
-              <%= link_to "##{hashtag.name}", hashtag_path(hashtag.id) %>
+              <%= link_to "##{hashtag.name}", hashtag_path(hashtag.id), class: "hash-name" %>
             <% end %>
           <% end %>
         </p>
