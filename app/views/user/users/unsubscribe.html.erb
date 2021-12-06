@@ -7,8 +7,8 @@
         これまでの投稿がすべて削除されます。
       </p>
       <div class="btn-wrapper my-5">
-        <%= link_to "退会しない", user_path(@user.id), class: "btn btn-success btn-block" %>
-        <%= link_to "退会する", withdraw_path(@user.id), method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger btn-block" %>
+        <%= link_to "退会しない", user_path(@user.id), class: "btn btn-outline-info btn-block rounded-pill" %>
+        <%= link_to "退会する", withdraw_path(@user.id), method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-outline-danger btn-block rounded-pill" %>
       </div>
     </div>
   </div>
