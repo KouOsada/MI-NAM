@@ -11,7 +11,7 @@
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %>
             <% end %>
-            <%= f.submit " チャットを始める", class: "btn btn-block btn-success" %>
+            <%= f.submit " チャットを始める", class: "btn btn-block btn-outline-info" %>
           <% end %>
         <% end %>
       <% end %>
