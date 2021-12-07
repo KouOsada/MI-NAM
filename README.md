@@ -53,6 +53,7 @@ MI-NAMはユーザーが試したコスメや体験したサービスのレビ�
   - PVランキング表示(impressionist)
   - フォロー機能
   - 検索機能
+  - 投稿の感情分析(Google Natural Language API)
 - 管理者側
   - ログイン/ログアウト
   - 投稿一覧・詳細表示・削除
