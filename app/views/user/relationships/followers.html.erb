@@ -1,7 +1,7 @@
-<div class="container px-5 px-sm-0">
+<div class="container">
   <div class="row">
-    <div class="col-12 mx-auto">
-      <h2 class="my-5"><%= @user.nickname %>さんのフォロワー</h2>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class="my-4 text-center"><%= @user.nickname %>さんのフォロワー</h2>
       <% if @users.exists? %>
         <%= render 'index', users: @users %>
       <% else %>

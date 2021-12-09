@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <div class="mb-4 flash"><%= flash[:notice] %></div>
-      <h2 class="mb-3">ログイン</h2>
+      <h2 class="mb-3 text-center">ログイン</h2>
 
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <div class="form-group">

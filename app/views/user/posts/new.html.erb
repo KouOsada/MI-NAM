@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2 class="mb-5">新しい投稿</h2>
+      <h2 class="mb-5 text-center">新しい投稿</h2>
       <%= render 'layouts/errors', obj: @post %>
 
       <%= form_with model: @post, url: posts_path, local: true do |f| %>
