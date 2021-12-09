@@ -2,13 +2,13 @@
   <div class="flash"><%= flash[:notice] %></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <h2 class="mb-4">ジャンル編集</h2>
+      <h2 class="mb-4 text-center">ジャンル編集</h2>
       <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
         <div class="form-group">
           <%= f.text_field :name, class: "form-control" %>
         </div>
         <div class="form-group text-right">
-          <%= link_to "削除", admin_genre_path, method: :delete, class: "btn btn-danger", data: {confirm: '本当に削除しますか？'} %>
+          <%= link_to "削除", admin_genre_path, method: :delete, class: "btn btn-outline-danger", data: {confirm: '本当に削除しますか？'} %>
           <%= f.submit "変更を保存", class: "btn btn-info" %>
         </div>
       <% end %>
