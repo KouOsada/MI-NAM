@@ -1,8 +1,8 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-5 mx-auto">
       <div class="mb-4 flash"><%= flash[:notice] %></div>
-      <h2 class="mb-5">ジャンル追加＋</h2>
+      <h2 class="mb-4 text-center">ジャンル追加＋</h2>
       <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
         <div class="form-group mb-4">
           <%= f.text_field :name, class: "form-control", placeholder: "ジャンル名を入力" %>
@@ -14,13 +14,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 mx-auto">
-      <h2 class="my-5">ジャンル一覧</h2>
+    <div class="col-md-5 mx-auto">
+      <h2 class="my-4 text-center">ジャンル一覧</h2>
       
       <table class="table">
         <% @genres.each do |genre| %>
           <tr>
-            <td><%= genre.name %></td>
+            <td class="text-center"><%= genre.name %></td>
             <td><%= link_to "編集", edit_admin_genre_path(genre.id), class: "btn btn-sm btn-secondary" %></td>
           </tr>
         <% end %>
