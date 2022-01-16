@@ -19,17 +19,17 @@ RSpec.describe 'Messageモデルのテスト', type: :model do
   end
   
   describe 'アソシエーションのテスト' do
-    content 'Userモデルとの関係' do
+    context 'Userモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Message.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-    content 'Roomモデルとの関係' do
+    context 'Roomモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Message.reflect_on_association(:room).macro).to eq :belongs_to
       end
     end
-    content 'Notificationモデルとの関係' do
+    context 'Notificationモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Message.reflect_on_association(:notification).macro).to eq :has_many
       end
