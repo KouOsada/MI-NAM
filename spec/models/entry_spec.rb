@@ -9,10 +9,12 @@ RSpec.describe 'Entryモデルのテスト', type: :model do
     it 'user_idとroom_idがある場合、有効であること' do
       expect(build(:entry)).to be_valid
     end
+    
     it 'user_idがない場合、無効であること' do
       entry.user_id = nil
       expect(build(:entry)).to be_invalid
     end
+    
     it 'room_idがない場合、無効であること' do
       entry.room_id = nil
       expect(build(:entry)).to be_invalid
@@ -25,6 +27,7 @@ RSpec.describe 'Entryモデルのテスト', type: :model do
         expect(Entry.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+    
     context 'Roomモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Entry.reflect_on_association(:room).macro).to eq :belongs_to
