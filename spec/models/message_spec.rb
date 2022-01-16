@@ -24,11 +24,13 @@ RSpec.describe 'Messageモデルのテスト', type: :model do
         expect(Message.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+    
     context 'Roomモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Message.reflect_on_association(:room).macro).to eq :belongs_to
       end
     end
+    
     context 'Notificationモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Message.reflect_on_association(:notification).macro).to eq :has_many

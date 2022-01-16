@@ -9,6 +9,7 @@ RSpec.describe 'Favoriteモデルのテスト', type: :model do
         expect(Favorite.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+    
     context 'Postモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Favorite.reflect_on_association(:post).macro).to eq :belongs_to

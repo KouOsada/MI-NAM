@@ -32,11 +32,13 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
         expect(Comment.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+    
     context 'Postモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Comment¥.reflect_on_association(:post).macro).to eq :belongs_to
       end
     end
+    
     context 'Nptificationモデルとの関係' do
       it '1:Nとなっているか' do
         expect(Comment.reflect_on_association(:post).macro).to eq :has_many
