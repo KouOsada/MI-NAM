@@ -2,6 +2,6 @@
 
 require 'rails_helper'
 
-RSpec.describe 'モデルのテスト', type: :model do
+RSpec.describe 'Hashモデルのテスト', type: :model do
   
 end
