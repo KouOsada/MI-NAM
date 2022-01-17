@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe '管理者のテスト' do
   let(:admin) { create(:admin) }
+  let!(:genre) { create(:genre) }
   
   before do
     visit new_admin_session_path
@@ -98,7 +99,7 @@ describe '管理者のテスト' do
   
   describe '投稿一覧のテスト' do
     let(:user) { create(:user) }
-    let!(:post) { create(:post, user_id: user.id) }
+    let!(:post) { create(:post, user_id: user.id, genre_id: genre.id) }
     
     before do
       fill_in 'admin[email]', with: admin.email
@@ -139,7 +140,7 @@ describe '管理者のテスト' do
     
     context '会員情報欄の確認' do
       it '投稿者の画像が表示される' do
-        expect(page).to have_content post.user.image
+        expect(page).to have_content post.user.profile_image
       end
       it '投稿者のニックネームが表示される' do
         expect(page).to have_content post.user.nickname
@@ -197,6 +198,118 @@ describe '管理者のテスト' do
     
     context '削除後のリダイレクト先が、投稿一覧画面になっている' do
       expect(current_path).to eq '/admin/posts'
+    end
+  end
+  
+  describe '会員一覧のテスト' do
+    let!(:user) { create(:user) }
+    
+    before do
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+    end
+    
+    context '表示の確認' do
+      it 'URLが正しいか' do
+        expect(current_path).to eq 'admin/users'
+      end
+      it '会員一覧と表示されているか' do
+        expect(page).to have_content '会員一覧'
+      end
+      it '画像が表示されているか' do
+        expect(page).to have_content user.profile_image
+      end
+      it 'ニックネームが表示されているか、そのリンク先は正しいか' do
+        expect(page).to have_link user.nickname, href: 'admin/users/' + user.id.to_s
+      end
+    end
+  end
+  
+  describe '会員詳細画面のテスト' do
+    let!(:user) { create(:user) }
+
+    before do
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+      click_link user.name
+    end
+    
+    context '表示の確認' do
+      it 'URLは正しいか' do
+        expect(current_path).to eq 'admin/users/' + user.id.to_s
+      end
+      it '会員詳細の表示はあるか' do
+        expect(page).to have_content '会員詳細'
+      end
+      it 'IDの表示があるか' do
+        expect(page).to have_content user.id
+      end
+      it 'ニックネームの表示があるか' do
+        expect(page).to have_content user.nickname
+      end
+      it '自己紹介の表示があるか' do
+        expect(page).to have_content user.introduction
+      end
+      it '年齢の表示があるか' do
+        expect(page).to have_content user.age
+      end
+      it '肌タイプの表示があるか' do
+        expect(page).to have_content user.skin_type
+      end
+      it 'ステータスの表示があるか' do
+        expect(page).to have_content user.status
+      end
+    end
+  end
+  
+  describe 'ジャンル一覧のテスト' do
+    before do
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+      visit admin_genres_path
+    end
+    
+    context '表示の確認' do
+      it 'URLは正しいか' do
+        expect(current_path).to eq 'admin/genres' 
+      end
+      it 'ジャンル追加の表示はあるか' do
+        expect(page).to have_content 'ジャンル追加＋'
+      end
+      it '追加フォームの表示はあるか' do
+        expect(page).to have_field 'genre[name]'
+      end
+      it '追加ボタンはあるか' do
+        expect(page).to have_button '追加'
+      end
+      it 'ジャンル一覧の表示はあるか' do
+        expect(page).to have_content 'ジャンル一覧'
+      end
+      it 'ジャンル名の表示はあるか' do
+        expect(page).to have_content genre.name 
+      end
+      it '編集リンクがあり、その遷移先は正しいか' do
+        expect(page).to have_content '編集', href: 'admin/genres/' + genre.id.to_s + '/edit'
+      end
+    end
+  end
+  
+  describe 'ジャンル追加機能のテスト' do
+    before do
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+      visit admin_genres_path
+      fill_in 'genre[name]', with: Faker::Lorem.characters(number: 5)
+    end
+    
+    context '追加成功のテスト' do
+      it '新しいジャンルが正しく保存される' do
+        expect { click_button '追加' }.to change(genre, :count).by(1)
+      end
     end
   end
 end
