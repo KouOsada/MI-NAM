@@ -4,7 +4,6 @@ require 'rails_helper'
 
 describe '管理者のテスト' do
   let(:admin) { create(:admin) }
-  let!(:post) { create(:post, user_id: user.id) }
   
   before do
     visit new_admin_session_path
@@ -98,6 +97,9 @@ describe '管理者のテスト' do
   end
   
   describe '投稿一覧のテスト' do
+    let(:user) { create(:user) }
+    let!(:post) { create(:post, user_id: user.id) }
+    
     before do
       fill_in 'admin[email]', with: admin.email
       fill_in 'admin[password]', with: admin.password
@@ -124,6 +126,77 @@ describe '管理者のテスト' do
       it '投稿の感情分析スコアが表示されている' do
         expect(page).to have_content post.score
       end
+    end
+  end
+  
+  describe '投稿詳細のテスト' do
+    before do
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+      click_link post.title
+    end
+    
+    context '会員情報欄の確認' do
+      it '投稿者の画像が表示される' do
+        expect(page).to have_content post.user.image
+      end
+      it '投稿者のニックネームが表示される' do
+        expect(page).to have_content post.user.nickname
+      end
+      it '投稿者の年代が表示される' do
+        expect(page).to have_content post.user.age
+      end
+      it '投稿者の肌タイプが表示される' do
+        expect(page).to have_content post.user.skin_type
+      end
+      it '投稿者の自己紹介が表示される' do
+        expect(page).to have_content post.user.introduction
+      end
+      it '投稿者のフォロー数が表示される' do
+        expect(page).to have_content post.user.followings
+      end
+      it '投稿者のフォロワー数が表示される' do
+        expect(page).to have_content post.user.followers
+      end
+    end
+    
+    context '投稿内容の確認' do
+      it '(投稿者名)さんの投稿、という表示があるか' do
+        expect(page).to have_content post.user.nickname + 'さんの投稿'
+      end
+      it '画像が表示されているか' do
+        expect(page).to have_content post.post_image
+      end
+      it '感情分析スコアが表示されているか' do
+        expect(page).to have_content post.score
+      end
+      it 'タイトルが表示されているか' do
+        expect(page).to have_content post.title
+      end
+      it 'ジャンルが表示されているか' do
+        expect(page).to have_content post.genre
+      end
+      it '本文が表示されているか' do
+        expect(page).to have_content post.body
+      end
+      it '削除ボタンがあるか' do
+        expect(page).to have_button '削除' 
+      end
+    end
+  end
+  
+  describe '投稿削除の確認' do
+    before do
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'ログイン'
+      click_link post.title
+      click_button '削除'
+    end
+    
+    context '削除後のリダイレクト先が、投稿一覧画面になっている' do
+      expect(current_path).to eq '/admin/posts'
     end
   end
 end
