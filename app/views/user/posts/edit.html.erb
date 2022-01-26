@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>投稿編集</h2>
+      <%= render 'layouts/errors', obj: @post %>
 
       <div class="my-4">
         <%= attachment_image_tag(@post, :post_image, size: "100x100", fallback: "no_image.png") %>
