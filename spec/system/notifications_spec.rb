@@ -57,7 +57,7 @@ describe '通知機能のテスト' do
         expect(page).to have_content '通知一覧'
       end
       it 'フォローされたユーザ詳細へのリンクが表示される' do
-        expect(page).to have_link user.name, href: user_path(user.id)
+        expect(page).to have_link user.nickname, href: user_path(user.id)
       end
     end
   end
